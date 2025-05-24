@@ -5,5 +5,15 @@ public enum EntityType {
     PREDATOR,
     GRASS,
     ROCK,
-    TREE
+    TREE;
+
+    public char getSymbol() {
+        return switch(this) {
+            case HERBIVORE -> 'H';
+            case PREDATOR -> 'P';
+            case GRASS -> 'G';
+            case ROCK -> 'R';
+            case TREE -> 'T';
+        };
+    }
 }

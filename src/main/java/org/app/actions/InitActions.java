@@ -50,6 +50,14 @@ public class InitActions {
         return coords;
     }
 
+    public static void spawnAllEntities(Map map) {
+        spawnEntitiesOnMap(EntityType.HERBIVORE, Config.INITIAL_HERBIVORES_COUNT, map);
+        spawnEntitiesOnMap(EntityType.PREDATOR, Config.INITIAL_PREDATORS_COUNT, map);
+        spawnEntitiesOnMap(EntityType.GRASS, Config.INITIAL_GRASS_COUNT, map);
+        spawnEntitiesOnMap(EntityType.ROCK, Config.INITIAL_ROCKS_COUNT, map);
+        spawnEntitiesOnMap(EntityType.TREE, Config.INITIAL_TREES_COUNT, map);
+    }
+
 
 
 

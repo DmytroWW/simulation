@@ -22,7 +22,7 @@ public class Map {
 
     // Перевірка чи вільна клітинка.
     public boolean isCellEmpty(int row, int col) {
-        return isInBounds(row, col) && grid[col][row] == null;
+        return isInBounds(row, col) && grid[row][col] == null;
     }
 
     // Повертає об'єкт який знаходиться в клітинці
