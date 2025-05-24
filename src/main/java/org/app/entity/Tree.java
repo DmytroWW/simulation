@@ -1,7 +1,9 @@
 package org.app.entity;
 
+import org.app.EntityType;
+
 public class Tree extends Entity {
-    public Tree(int x, int y) {
-        super(x, y, "Tree");
+    public Tree(int row, int col) {
+        super(row, col, EntityType.TREE);
     }
 }

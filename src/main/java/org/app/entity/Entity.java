@@ -1,13 +1,15 @@
 package org.app.entity;
 
-public abstract class Entity {
-    public int x;
-    public int y;
-    public String type;
+import org.app.EntityType;
 
-    public Entity(int x, int y, String type) {
-        this.x = x;
-        this.y = y;
+public abstract class Entity {
+    public int row;
+    public int col;
+    public EntityType type;
+
+    public Entity(int row, int col, EntityType type) {
+        this.row = row;
+        this.col = col;
         this.type = type;
     }
 }
