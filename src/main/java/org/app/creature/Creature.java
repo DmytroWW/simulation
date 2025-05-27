@@ -15,7 +15,17 @@ public abstract class Creature extends Entity {
         this.speed = speed;
     }
 
+    // Оверрайд методи
+    @Override
+    public abstract Entity spawn (int newRow, int newCol);
+
+    @Override
+    public abstract String render();
+
     // Методи
     public void makeMove(){
+
     };
+
+
 }

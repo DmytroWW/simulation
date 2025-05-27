@@ -2,6 +2,7 @@ package org.app.creature;
 
 import org.app.Config;
 import org.app.EntityType;
+import org.app.entity.Entity;
 
 public class Predator extends Creature {
     // Поля
@@ -13,6 +14,19 @@ public class Predator extends Creature {
         this.attackPower = Config.PREDATOR_ATTACK_POWER;
     }
 
+    // Оверрайд методи
+    @Override
+    public Entity spawn(int newRow, int newCol) {
+        return new Predator(newRow, newCol);
+    }
+    @Override
+    public String render() {
+        return "P";
+    }
+
     // Методи
+
+
+
 
 }

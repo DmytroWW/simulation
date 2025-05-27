@@ -1,19 +1,19 @@
 package org.app.simulation;
 
 import org.app.Config;
+import org.app.EntityType;
 import org.app.entity.Entity;
 
-public class Map {
+public class GameMap {
     // Поле. Двовимірний масив що представляє карту.
     private Entity[][] grid;
 
-    // Конструктор класу Мар.
-    public Map() {
-
+    // Конструктор класу.
+    public GameMap() {
         grid = new Entity[Config.MAP_HEIGHT][Config.MAP_WIDTH];
     }
 
-    // Методи класу Мар.
+    // Методи класу.
 
     // Перевірка чи координати в межах карти.
     public boolean isInBounds(int row, int col) {
@@ -31,12 +31,10 @@ public class Map {
         return grid[row][col];
     }
 
-    // Кладемо об'єкт в клітинку
-    public boolean placeEntityAt(Entity entity, int row, int col) {
-        if (!isCellEmpty(row, col)) return false;
-        grid[row][col] = entity;
-        entity.row = row;
-        entity.col = col;
+    public boolean PlaceEntityAt(EntityType type, int row, int col) {
+        if (!isInBounds(row, col) || !isCellEmpty(row, col)) return false;
+        Entity newEntity = type.create(row, col);
+        grid[row][col] = newEntity;
         return true;
     }
 
