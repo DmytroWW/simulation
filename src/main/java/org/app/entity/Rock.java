@@ -1,18 +1,16 @@
 package org.app.entity;
 
-import org.app.EntityType;
+import org.app.model.EntityType;
 
 public class Rock extends Entity {
+
+    // конструктор
     public Rock(int row, int col) {
         super(row, col, EntityType.ROCK);
     }
 
 
     // Оверрайд методи
-    @Override
-    public Entity spawn(int newRow, int newCol) {
-        return new Rock(newRow, newCol);
-    }
     @Override
     public String render() {
         return "R";

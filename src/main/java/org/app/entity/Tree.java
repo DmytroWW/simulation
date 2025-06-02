@@ -1,18 +1,17 @@
 package org.app.entity;
 
-import org.app.EntityType;
+import org.app.model.EntityType;
+
 
 public class Tree extends Entity {
+
+    //конструктор
     public Tree(int row, int col) {
         super(row, col, EntityType.TREE);
     }
 
 
     // Оверрайд методи
-    @Override
-    public Entity spawn(int newRow, int newCol) {
-        return new Tree(newRow, newCol);
-    }
     @Override
     public String render() {
         return "T";

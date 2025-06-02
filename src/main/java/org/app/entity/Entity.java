@@ -1,12 +1,13 @@
 package org.app.entity;
 
-import org.app.EntityType;
+import org.app.model.EntityType;
 
 public abstract class Entity {
     private int row;
     private int col;
     private final EntityType type;
 
+    // Конструктор
     public Entity(int row, int col, EntityType type) {
         this.row = row;
         this.col = col;
@@ -22,6 +23,6 @@ public abstract class Entity {
     public EntityType getType() { return type; }
 
 
-    public abstract Entity spawn (int newRow, int newCol);
+
     public abstract String render();
 }

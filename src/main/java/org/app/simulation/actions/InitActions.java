@@ -1,7 +1,7 @@
-package org.app.actions;
+package org.app.simulation.actions;
 
 import org.app.Config;
-import org.app.EntityType;
+import org.app.model.EntityType;
 import org.app.simulation.GameMap;
 
 import java.util.ArrayList;

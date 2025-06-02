@@ -1,6 +1,6 @@
 package org.app;
 
-import org.app.actions.InitActions;
+import org.app.simulation.actions.InitActions;
 import org.app.simulation.GameMap;
 import org.app.simulation.Renderer;
 

@@ -1,10 +1,13 @@
-package org.app.creature;
+package org.app.entity.creature;
 
 import org.app.Config;
-import org.app.EntityType;
-import org.app.entity.Entity;
+import org.app.model.EntityType;
 
 public class Herbivore extends Creature {
+
+    // Поля
+    private final EntityType diet = EntityType.GRASS;
+
 
     // Конструктор
     public Herbivore(int row, int col) {
@@ -13,10 +16,6 @@ public class Herbivore extends Creature {
 
 
     // Оверрайд методи
-    @Override
-    public Entity spawn(int newRow, int newCol) {
-        return new Herbivore(newRow, newCol);
-    }
     @Override
     public String render() {
         return "H";

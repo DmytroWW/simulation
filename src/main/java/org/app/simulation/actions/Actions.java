@@ -1,4 +1,4 @@
-package org.app.actions;
+package org.app.simulation.actions;
 
 
 public class Actions {

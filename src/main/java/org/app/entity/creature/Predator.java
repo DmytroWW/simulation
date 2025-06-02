@@ -1,12 +1,12 @@
-package org.app.creature;
+package org.app.entity.creature;
 
 import org.app.Config;
-import org.app.EntityType;
-import org.app.entity.Entity;
+import org.app.model.EntityType;
 
 public class Predator extends Creature {
     // Поля
     protected int attackPower;
+    private final EntityType diet = EntityType.HERBIVORE;
 
     // Конструктор
     public Predator(int row, int col) {
@@ -15,10 +15,6 @@ public class Predator extends Creature {
     }
 
     // Оверрайд методи
-    @Override
-    public Entity spawn(int newRow, int newCol) {
-        return new Predator(newRow, newCol);
-    }
     @Override
     public String render() {
         return "P";
