@@ -14,11 +14,24 @@ public class Config {
 
     //атака\здоров'я істот
     public static final int PREDATOR_ATTACK_POWER = 10;
+    public static final int HERBIVORE_ATTACK_POWER = 10;
+
     public static final int PREDATOR_MAX_HEALTH = 20;
     public static final int HERBIVORE_MAX_HEALTH = 20;
+    public static final int GRASS_MAX_HEALTH = 10;
 
     //швидкість істот
     public static final int HERBIVORE_SPEED = 1;
     public static final int PREDATOR_SPEED = 1;
+
+    //голод
+    public static final int PREDATOR_HEALTH_RESTORE = 10;
+    public static final int HERBIVORE_HEALTH_RESTORE = 10;
+
+    public static final int HERBIVORE_HUNGER_THRESHOLD = 5;
+    public static final int PREDATOR_HUNGER_THRESHOLD = 5;
+
+    public static final int HERBIVORE_HUNGER_DAMAGE = 2;
+    public static final int PREDATOR_HUNGER_DAMAGE = 2;
 
 }

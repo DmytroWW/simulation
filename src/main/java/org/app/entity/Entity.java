@@ -22,7 +22,9 @@ public abstract class Entity {
 
     public EntityType getType() { return type; }
 
+    public void takeDamage(int amount) {
 
+    }
 
     public abstract String render();
 }
