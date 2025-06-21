@@ -23,7 +23,13 @@ public abstract class Entity {
     public EntityType getType() { return type; }
 
     public void takeDamage(int amount) {
+        // За замовчуванням можна нічого не робити або логіку, якщо є
+        // Цей метод залишиться для backward-compatibility
+    }
 
+    public void takeDamage(int amount, String reason) {
+        // Викликаємо базовий варіант
+        takeDamage(amount);
     }
 
     public abstract String render();

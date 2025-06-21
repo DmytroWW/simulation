@@ -20,7 +20,7 @@ public final class EntityFactory {
         return switch (type) {
             case EntityType.HERBIVORE -> new Herbivore(row, col, pathfinder);
             case EntityType.PREDATOR -> new Predator(row, col, pathfinder);
-            case EntityType.GRASS -> new Grass(row, col);
+            case EntityType.GRASS -> new Grass(row, col, pathfinder.getMap());
             case EntityType.ROCK -> new Rock(row, col);
             case EntityType.TREE -> new Tree(row, col);
 

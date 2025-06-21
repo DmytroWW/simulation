@@ -20,6 +20,14 @@ public class GameMap {
 
     // Методи класу.
 
+    public int getHeight() {
+        return grid.length;
+    }
+
+    public int getWidth() {
+        return grid[0].length;
+    }
+
     // Перевірка чи координати в межах карти.
     public boolean isInBounds(int row, int col) {
         return row >= 0 && row < Config.MAP_HEIGHT && col >= 0 && col < Config.MAP_WIDTH;

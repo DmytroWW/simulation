@@ -2,13 +2,16 @@ package org.app.entity;
 
 import org.app.Config;
 import org.app.model.EntityType;
+import org.app.simulation.GameMap;
 
 public class Grass extends Entity{
     private int hp = Config.GRASS_MAX_HEALTH;
+    private final GameMap map;
 
     // Конструктор
-    public Grass(int row, int col) {
+    public Grass(int row, int col, GameMap map) {
         super(row, col, EntityType.GRASS);
+        this.map = map;
     }
 
 
@@ -32,6 +35,6 @@ public class Grass extends Entity{
     }
 
     protected void die() {
-        // Видалити з карти через GameMap
+        map.removeEntityAt(getRow(), getCol());
     }
 }

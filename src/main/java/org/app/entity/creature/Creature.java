@@ -50,19 +50,24 @@ public abstract class Creature extends Entity {
     @Override
     public abstract String render();
 
-
-    // Методи
+    @Override
     public void takeDamage(int amount) {
+        takeDamage(amount, "від голоду");
+    }
+    @Override
+    public void takeDamage(int amount, String reason) {
         hp -= amount;
-        if (hp <= 0) die();
+        if (hp <= 0) {
+            System.out.printf("Я — %s. Помер %s на (%d,%d)%n",
+                    this.getClass().getSimpleName(), reason, getRow(), getCol());
+            die();
+        }
     }
-
-    protected void die() {
-        map.removeEntityAt(getRow(), getCol());
-    }
-
+    // Методи
 
     public void makeMove() {
+        int currentRow = getRow();
+        int currentCol = getCol();
         // Ходи життя істоти
         moveCount++;
         if (moveCount >= hungerThreshold) {
@@ -70,19 +75,41 @@ public abstract class Creature extends Entity {
         }
 
         Point next = pathfinder.findNextStepToNearestPrey(getRow(), getCol(), dietType);
-        if (next == null) return;
+        if (next == null) {
+            System.out.printf("Я — %s. Стою на місці (%d,%d), не знайшов куди йти.%n", this.getClass().getSimpleName(), currentRow, currentCol);
+            return;
+        }
 
         int nr = next.x, nc = next.y;
+
         Entity target = map.getEntityAt(nr, nc);
+
         if (target != null && dietType.canEat(target.getType())) {
+            System.out.printf("Я — %s. Атакую %s на (%d,%d)%n", this.getClass().getSimpleName(), target.getType(), nr, nc);
             attack(target);
+
+            if (target instanceof Creature c && c.hp > 0) {
+                return;
+            }
+            if (target instanceof Grass g && !g.isDead()) {
+                return;
+            }
+
         }
-        map.moveEntity(getRow(), getCol(), nr, nc);
+
+        boolean moved = map.moveEntity(currentRow, currentCol, nr, nc);
+
+        if (moved) {
+            System.out.printf("Я — %s. Рухаюся з (%d,%d) в (%d,%d)%n", this.getClass().getSimpleName(), currentRow, currentCol, nr, nc);
+        } else {
+            System.out.printf("Я — %s. Не зміг рухатися з (%d,%d) в (%d,%d)%n", this.getClass().getSimpleName(), currentRow, currentCol, nr, nc);
+        }
+
     }
 
     public void attack(Entity target) {
         int dmg = getAttackPower();
-        target.takeDamage(dmg);
+        target.takeDamage(dmg, "у бою");
 
         if (target instanceof Creature) {
             Creature c = (Creature) target;
@@ -97,6 +124,11 @@ public abstract class Creature extends Entity {
             }
         }
     }
+
+    protected void die() {
+        map.removeEntityAt(getRow(), getCol());
+    }
+
     protected void onKill(Creature prey) {
         // За замовчуванням нічого
     }
